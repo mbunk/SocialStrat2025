@@ -1,0 +1,1078 @@
+---
+title: "Childhood significant events: A good explainer of mental health inequalities?"
+subtitle: "Stirling Social Stratification Conference"
+author: "Maddi Bunker"
+date: "27 August 2025"
+date-format: long
+institute: "The University of Edinburgh"
+format:
+  revealjs:
+    scrollable: true
+    slide-number: true
+    footer: "Maddi.Bunker@ed.ac.uk"
+output:
+  html:
+    embed-resources: true
+bibliography: references.json
+logo: images/UoE.png
+smaller: TRUE
+editor: source
+---
+
+```{r}
+#| message: false
+#| warning: false
+library(gt)
+library(ggplot2)
+library(stringr)
+library(dplyr)
+```
+
+```{r}
+#| echo: false
+#| include: false
+
+# Set the root directory based on the system's username
+get_root_dir <- function() {
+  user <- Sys.info()[["user"]]
+  
+  if (grepl("s1769862", user)) {
+    return("C:\\Users\\s1769862\\OneDrive - University of Edinburgh\\Presentations\\Critical-Events-in-Childhood-Presentation\\_data")
+  } else if (grepl("maddi", user)) {
+    return("C:\\Users\\maddi\\Documents\\Presentations\\Critical Events in Childhood Presentation\\_data\\Paper_5")
+  } else {
+    stop("Unknown user")
+  }
+}
+
+dir <- get_root_dir()
+
+## libraries
+library(dplyr)
+library(gt)
+library(ggplot2)
+```
+
+
+------------------------------------------------------------------------
+
+## Background
+
+- Final year PhD student in Social Policy at the University of Edinburgh
+
+- Project topic: How do childhood critical events and inequalities impact children's social and emotional development?
+
+- Supervised by Dr Valeria Skafida and Dr Emma Davidson, funded by ESRC through SGSSS.
+
+- Work presented here compromises the final paper of my thesis
+
+
+![](images/sgsss.png){width="15%"} 
+
+![](images/esrc.svg){width="35%"}
+
+-------------------------------------------------------------------------
+
+## Data
+
+Growing Up in Scotland (GUS) birth cohort one
+
+-   11 data collection sweeps from 10 months (b.d. 2004/5) to 17 years.
+-   Sample size: N = 5,217 in SW1, N = 504 in "boost sample" (added in SW9)
+-   Nationally representative with multi-stage stratified sampling, with design variables and longitudinal weights to attenuate attrition
+-   Mix of responses from main parent, their partner, the child's p6 teacher, and child/adolescent self responses.
+
+<br>
+<br>
+
+![](images/gus.png)
+
+------------------------------------------------------------------------
+
+# Motivating theory & framework  
+
+
+
+---------------------------------------------------------------------
+
+We know that....
+
+
+-   Mental health outcomes are socially stratified across the life course [@kirkbride2024; @marmot2016] but causal pathways and best routes to prevention remain contested [@alegria2018]
+
+-   Policy interest in childhood experiences, particularly childhood adversity (e.g. Scotland's ACE-Aware Nation campaign) [@scottishgovernment2024, see discussion in @davidson2020]
+
+-   Limited distinction between stable inequalities (e.g., poverty, social class), and events/experiences (e.g. abuse, trauma) c.f. @yang2023
+
+-   Related to wider issue of under-exploration of change in childhood circumstances and studies [@adam2004] and confounded by the correlation between "stable" inequalities and adverse experiences [see @camacho2022; @marryat2019]
+
+------------------------------------------------------------------------
+
+#### "Structural" framework {.smaller}
+
+-   Poverty [@reiss2013] and food insecurity and area-level deprivation [@abraham2022], maternal education [@mensch2019; @meyrose2018]; racism [@yang2023; @abraham2022; @simons2002];  housing [@rolfe2020]; and social class [@dougall2024]
+
+Theorised as accumulation of risk factors for poor social and emotional development, i.e. elevated stress, e.g. stress process theory [@pearlin2005], which interact with the child and family through shaping environments and exposures [@bronfenbrenner1988; @bronfenbrenner1977]
+
+-   Emerging interest in a a "Whole Family Approach" to support the family unit [@government2023], requiring more detailed understanding of household effects and their covariates over time.
+
+-   Design interventions targeted at the root of mental health inequalities across the life course.
+
+::: {.callout-note appearance="simple" icon="false"}
+
+Explains the stability of stratification of mental health but fails to account for relatively high rates of *change* in household circumstances
+
+:::
+
+------------------------------------------------------------------------
+
+#### "Experiences" framework {.smaller}
+
+-   Adverse Childhood Experiences (ACEs) [@thurston2025; @felitti1998; @acesaware]
+
+Emotional, physical and sexual abuse, physical and emotional neglect, domestic violence, parental separation, family incarceration, mental illness and substance abuse
+
+-   Benevolent Childhood Experiences (BCES/ PACES) [@narayan2018; @bethell2019; @burstein2021; @kallapiran2025]
+
+Time-stable "protective" factors: family relationships, trusted adults, home stability, community organisations and support, friendships. Intertwined with ACEs [@han2023]
+
+::: {.callout-note appearance="simple" icon="false"}
+
+Contested categorisations; length of exposure and space for wider context is often lost
+
+:::
+
+------------------------------------------------------------------------
+
+Unpacking these mechanisms matters because...
+
+-   Mental health issues are worsening across Scotland [@thescottishgovernment2019], especially for the youngest generation [@deakin2023].
+
+-   Policy focus on adverse childhood experiences (ACEs) in Scotland [@thescottishgovernment2024], despite ample critique on the concept [@white2019] and usage [@lacey2020].
+
+-   Significant focus on adversity and trauma can distract stable structural inequalities and blame parents over upstream causes [@treanor2019; @macvarish2019], but structural frameworks alone cannot account for variance of outcomes given similar "starting" contexts.
+
+------------------------------------------------------------------------
+
+Opportunities
+
+-   Rich, longitudinal data allows disentanglement of timing, contextual change, and short-to-medium term effects
+-   Repeated psychometric measures provide stable estimation of change and routes to modelling development
+-   Repeated measures allows short-to-medium term effects, providing greater control for potential confounders
+-   Prospective evidence; majority of existing evidence on positive childhood experiences relies on retrospective reporting [@kallapiran2025]
+
+------------------------------------------------------------------------
+
+## Theoretical framework
+
+- Socio-ecological model for psychological development
+
+Children develop through interacting systems of the household, neighbourhood, institutions, wider social network, and overarching cultural and political systems [@bronfenbrenner1977]
+
+- Social determinents of mental health and Stress Process Theory
+
+Structural inequalities shape exposure to household stressors, impacting parenting behaviours and support [@pearlin1981; @nomaguchi2017; @alegria2018]
+
+- Turning point theory
+
+Fateful moment [@giddens1991] and turning points [@rutter1996] theories offer a theoretical underpinning unpacking change across the life course
+
+Can be a single shock "event", or a more gradual process of significant change.
+
+--------------------------------------------------------------------------------
+
+
+## Operationalising the critical event
+
+<br>
+
+
+
+::: {.callout-note appearance="simple" icon="false"}
+
+## Definition
+
+A significant  **experience** or substantial **change** to a child's personal, family or neighbourhood context that may impact their development
+
+:::
+
+
+
+::: {.callout-note appearance="simple" icon="false"}
+
+## Construction
+
+Sum parent reports of experiences or changes in stable characteristics across  developmental phases.
+
+Grouped by themes and normative assessment of positive or negative impact
+
+- Early childhood: age four to eight
+- Middle childhood: age eight to fourteen
+
+:::
+
+
+
+
+::: {.callout-note appearance="simple" icon="false"}
+
+## Purpose
+
+How do potentially significant positive and negative disruptions to a child's developmental environment impact their social and emotional development, holding baseline inequalities constant?
+:::
+
+
+
+---------------------------------------------------------------------------
+
+```{r}
+events <- data.frame(
+  Event = c(
+    "Event 1",
+    "Event 2",
+    "Event 3",
+    "Event 4",
+    "Event 5",
+    "Event 6",
+    "Event 7"
+    ),
+  Name = c(
+    "Family composition",
+    "Illness/bereavement",
+    "Crime and policing",
+    "Maternal education",
+    "Residential mobility",
+    "Youth group attendance",
+    "Change in poverty status"
+  ),
+  Description = c(
+    "Change(s) to family relationships and composition",
+    "New serious illness or death in the immediate family",
+    "Child, sibling or parent encounter(s) with cime or policing",
+    "Gain of new educational qualification(s)",
+    "Moving home (A = with agency, B = move other reason)",
+    "Participation in Youth Group or programme",
+    "Significant change to equivalised income (A = move out relative poverty, B = move into relative poverty)"
+  ),
+  Variables = c(
+    "New parent/partner of parent; parent left full-time residence; new conflict between parents.",
+    "Death of parent/sibling; serious injury/illness of parent/sibling, new mental health or substance problem abuse in family.",
+    "Parent problem with police; parental incarceration; family experience of crime; study child or their sibling in trouble with police",
+    "Any educational qualification, including: diploma, any employment-related certificate",
+    "Buy home, ,better' area, school catchment area, bigger home, nearer family, no particular reason, away from crime, desired change",
+    "Uniformed group, youth democracy, youth club, engaged with youth worker.",
+    "Move above 60% of median income represents a move *out* of relative poverty. The reverse change represents a move *into* relative poverty"
+  )
+)
+
+events |>
+  gt::gt() |>
+  gt::tab_header("Critical event groupings")
+    
+```
+---------------------------------------------------
+
+
+
+```{r}
+context <- data.frame(" " = c("Child gender", "Maternal age", "Household language", "Maternal education", "Housing tenure", "Household income", "SIMD", "Siblingship", "Covid flag"))
+
+
+events <- read.csv(file.path(dir, "events.csv"))
+
+events <- events[, 2:4]
+
+events |>
+  dplyr::mutate(
+    Name = case_when(
+      Characteristic == "Event 1 " ~ "Family composition",
+      Characteristic == "Event 2 " ~ "Illness/bereavement",
+      Characteristic == "Event 3 " ~ "Crime and policing",
+      Characteristic == "Event 4 " ~ "Maternal education",
+      Characteristic == "Event 5 " ~ "Residential mobility",
+      Characteristic == "Event 6 " ~ "Youth group attendance",
+      Characteristic == "Event 7 " ~ "Change in poverty status",
+      .default = ""
+    )
+  ) |>
+  relocate(Name) |>
+  relocate(Characteristic) |>
+    
+  gt::gt() |>
+  gt::sub_missing(
+    missing_text = " "
+  )
+```
+
+
+-----------------------------------------------------
+  
+
+# Mental health measurement
+
+------------------------------------------------------------------------
+
+Goodman's [-@goodman1997] Strengths and Difficulties Questionnaire (SDQ) is a 25 item psychometric screener.
+
+<br>
+
+Widely used validated [@bergstrom2021; @vugteveen2021; @goodman2001], although not without criticism [@kersten2016; @white2013].
+<br>
+
+Measures of 4 dimensions of "difficulties":
+
+-   **emotional** symptoms (e.g. "often seems worried")
+-   **peer** problems (e.g. "rather solitary")
+-   **conduct** issues (e.g. "fights or bullies")
+-   **hyperactivity**/inattention (e.g. "easily distracted")
+
+And 1 dimension of "strengths":
+
+-   **pro-social** behaviours (e.g. "shared with other children")
+
+------------------------------------------------------------------------
+
+#### Goodman's SDQ measurement (details)
+
+-   5 items per dimension, e.g. *"Has at least one good friend"*, *"Sees tasks through to the end, good attention span"*
+-   Sum responses from from 0 "Not true" to 2 "Certainly true" (ergo, **ordinal**)
+-   Greater values indicate greater difficulties (or strengths, for pro-social dimension). Some items are reverse-scored to achieve this.
+
+#### Each dimension treated as a separate outcome
+
+-   Common to sum into "total difficulties" + strengths scales
+-   But different dimensions have divergent relationships with development and trends over time.
+-   Differential patterns in report bias, evident from inter-respondent discrepancies
+
+
+------------------------------------------------------------------------
+
+# Methods
+
+------------------------------------------------------------------------
+
+**How do critical events in childhood impact social and emotional development?**
+
+Easy to associate at one outcome point, e.g. ${Y} =  \beta_0 + \beta_{x1} + \beta_{x2} +... \epsilon$, but this ignores baseline differences in $Y$, difficult to temporally isolate cause-effect.
+
+<br>
+
+**Option 1**: Linear or quadratic growth model (GCM) (i.e. @burant2016)
+
+- Difficult to isolate timing of event and timing of gradient of change
+- Requires development to either be linear, or follow another polynomial
+
+**Option 2**: Person or group-centred approach (e.g. group-based trajectory model, @nagin2016)
+
+- Requires qualitatively interpreting group shapes, high uncertainty
+- Can be problematic when many "shapes" are flat lines
+
+**Option 3**: Categorised change (e.g. move from "below threshold" to "above threshold")
+
+- Requires threshold effects (not clear for SDQ) and disregards dimensional quality of scale [@goodman2009]
+
+----------------------------------------------------------------------------
+
+#### Estimating dimensional change over time
+
+- Outcome $Y$ is the $\Delta$ within a developmental time period
+- Gradient is therefore based on a dimensional change in behaviour
+- Evaluates the short-to-medium term associations
+
+![](images/model_diagram.png)
+
+----------------------------------------------------------------------------
+
+Goal: Estimate the effect of experiencing a critical event ($X$) on the *change* ($\Delta$) in a construct ($Y$) over a developmental time period.
+
+
+We want to do this: $$\Delta_{Y} = Y_{t1} - Y_{t2}$$ $$\Delta_{Y} = \beta_0 + \beta_{x1} + \beta_{x2} +... \epsilon $$
+
+
+However, directly measuring the coefficient of $\beta_{x}$ concerns estimation issues (see detailed discussion in @edwards1994 and @laird2013)
+
+<br>
+
+Two Y estimates with equal variance and covariance with an X var cannot produce a significant x --\> $y_{diff}$ relationship.
+
+<br>
+
+Same error for estimating $X$ predictors of inter-respondent discrepancies
+
+------------------------------------------------------------------------  
+
+McArdle [-@mcardle2001; -@mcardle2009] proposed estimating the change/difference as a latent factor in an SEM framework.
+
+- $Y$ is estimated from the common variance of indicator items + error $\epsilon$
+
+-   Fix intercept of $Y_{t1}$ and $Y_{t2}$ to 0, and the residual variance of $Y_t{1}$ to 0
+
+-   Estimate $Y_{t2}$ as the constrained $Y_{t1}$ + $\Delta$ by loading $Y_{t2}$ and $Y{t1}$ on $\Delta$.
+
+$$Y_{t2} = Y_{t1} + \Delta$$
+
+$\Delta$ gets its own mean and variance that are separated from the observed $Y$ at both time periods and therefore not susceptible to the same issues as straight $Y_{t2}-Y_{t1}$.
+
+------------------------------------------------------------------------
+
+### Measurement model {.smaller}
+
+-   The $\Delta$ becomes a second order latent factor when the $Y_{t1}$ and $Y_{t2}$ are estimated as latent factors composed of their manifest questionnaire items
+
+-   Constraining measurement invariance between time points (item configuration, loadings and intercepts constrained) isolates the residual error. Strict scalar invariance for longitudinal parent-reported SDQ in GUS.
+
+$$Y_{t1} = Y_{true} + \epsilon_{t1}$$
+
+-   Can claim $\Delta$ composed entirely of the "true" difference between measurement occasions.
+
+------------------------------------------------------------------------
+
+![](images/path-diagram.png)
+
+Source @vecchione2024
+
+-   The $\Delta$, as a second order latent variable, is estimated as another parameter with its own **mean** and **variance**.
+
+-   These can tell us about the properties of average difference in estimates between two time periods, inter-individual variability in this change [@mcardle2001; @vecchione2024]
+
+-   The resulting $\Delta$ can be treated as a variable in the SEM and we can use this to study attributes and predictors of change.
+
+------------------------------------------------------------------------
+
+![](images/model_diagram.png)
+
+------------------------------------------------------------------------
+
+#### Specifications
+
+-   Mplus8 via MplusAutomation in R v. 4.5.0, using `Type=COMPLEX` for sampling design adjustments.
+
+-   Ordinal parametrisation for manifest items
+
+-   Loadings derived from probability of endorsing a category, not a coefficient.
+    -   Robust Weighted Least Squared using diagonal weight matrix (WLSMV estimator). Robust to non-normality. Uses polychoric correlation for categorical items.
+    
+    -   Theta parametrisation (frees residual variances of latent variables). Required for ordinal threshold estimation.
+
+Reference works: @grimm2016, @crayen2016, @xu2017
+
+::: notes
+
+
+Delta parametrisation: scale factors for continuous latent response variables of observed categorical dependent variables are allowed to be parameters in the model, but residual variances for continuous latent response variables are not.
+
+Theta parametrisation: residual variances for continuous latent response variables of observed categorical dependent variables are allowed to be parameters in the model but scale factors for continuous latent response variables are not.
+
+
+[@muthen2017, pg. 34]
+
+:::
+
+------------------------------------------------------------------------
+
+### Model permutations
+
+Separated by:
+
+-   behavioural component (emotional difficulties, peer problems, hyperactivity/intention, conduct problems, pro-social strengths)
+
+-   Event grouping (1 through 7), developmental period (early or middle childhood).
+
+-   Result: 100+ model runs
+
+
+```{r}
+model_explanations <- data.frame(
+    Model = c("A", "B", "C", "D", "E"),
+    Type = c("Empty", "Context", "Event", "Full", "Semi"),
+    Event = c("No", "No", "Yes", "Yes", "Yes"),
+    Context = c("No", "Yes", "No", "Yes", "Some")
+)
+
+model_explanations |> gt::gt()
+
+```
+
+
+------------------------------------------------------------------------
+
+```{r}
+context <- data.frame(" " = c("Child gender", "Maternal age", "Household language", "Maternal education", "Housing tenure", "Household income", "SIMD", "Siblingship", "Covid flag"))
+
+
+early <- read.csv(file.path(dir, "early.csv"))
+
+early[, 2:4] |>
+  gt::gt() |>
+  gt::sub_missing(
+    missing_text = " "
+  )
+```
+
+------------------------------------------------------------------------
+
+# Results: Model building
+
+```{r}
+# standardised
+param <- read.csv(file.path(dir, "model_stand_param.csv"))
+
+# unstandardised
+param2 <- read.csv(file.path(dir, "model_param.csv"))
+
+# fit
+fit <- read.csv(file.path(dir, "model_fit.csv"))
+
+# r squared
+r2 <- read.csv(file.path(dir, "model_r2.csv"))
+```
+
+------------------------------------------------------------------------
+
+# Model A: Baseline change
+
+
+
+![](images/baseline.png)
+
+----------------------------------------------------------------------
+
+
+```{r}
+param %>%
+  dplyr::filter(Parameter == "Means Delta",
+         Model == "A" ) |>
+ggplot(aes(x = Component, y = est, color = Age)) +
+  geom_point(position = position_dodge(width = 0.5)) +
+  geom_errorbar(aes(ymin = low2.5, ymax = up2.5), 
+                width = 0.2, 
+                position = position_dodge(width = 0.5)) +
+  labs(title = "Model-implied average change in SDQ scores",
+       x = "SDQ Component", y = "Mean Delta", color = "Age") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  geom_hline(yintercept=0, linetype="dashed", color="purple") +
+  theme_minimal()
+
+```
+
+-----------------------------------------------------------
+
+```{r}
+
+Indice = c("CFI", "TLI", "RMSEA")
+Estimate = c(0.9, 0.08, 0.9)
+
+fit |>
+  dplyr::filter(Model == "A") |>
+  tidyr::pivot_longer(cols = c(CFI, TLI, RMSEA),
+                      names_to = "Indice",
+                      values_to = "Estimate") |>
+  ggplot(aes(
+    y = Estimate, x = Indice, color = Component
+  )) +
+    geom_point() +
+  geom_hline(yintercept = 0.9, linetype = "dotted") +
+  geom_hline(yintercept = 0.08, linetype = "dotted") +
+  theme_minimal() +
+  facet_grid(~Model)
+```
+
+```{r}
+fit |>
+  dplyr::filter(Model == "A" & Component == "peer") |>
+  gt()
+```
+
+
+
+------------------------------------------------------------------------
+
+# Model B: Context
+
+
+----
+
+![](images/context-model.png)
+
+
+
+--------------------------------------------------------------
+
+
+```{r}
+Indice = c("CFI", "TLI", "RMSEA")
+Estimate = c(0.9, 0.08, 0.9)
+
+fit |>
+  dplyr::filter(Model == "B") |>
+  tidyr::pivot_longer(cols = c(CFI, TLI, RMSEA),
+                      names_to = "Indice",
+                      values_to = "Estimate") |>
+  ggplot(aes(
+    y = Estimate, x = Indice, color = Component
+  )) +
+    geom_point() +
+  geom_hline(yintercept = 0.9, linetype = "dotted") +
+  geom_hline(yintercept = 0.08, linetype = "dotted") +
+  theme_minimal() +
+  facet_grid(~Model)
+```
+
+```{r}
+fit |>
+  dplyr::filter(Model == "B" | Model == "A") |>
+  dplyr::filter(Component == "peer") |>
+  gt()
+```
+
+
+------------------------------------------------------------------------
+
+```{r}
+r2 |>
+  filter(Model == "B") |>
+  mutate(ci_lower = est - 1.96 * se,
+         ci_upper = est + 1.96 * se) |>
+  ggplot(
+    aes(x = Component, y = est, color = Component)
+  ) +
+  geom_point(position = position_dodge(width = 0.5)) +
+  geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper), 
+                width = 0.2, 
+                position = position_dodge(width = 0.5)) +
+  geom_hline(yintercept=0, linetype="dashed", color="black")+
+  theme_minimal() +
+  labs(y = "R2 of Delta explained") +
+  facet_wrap(~ Age)
+```
+
+------------------------------------------------------------------------
+
+
+## Model C: Event
+
+
+
+![](images/event-model.png)
+
+------------------------------------------------------------------------
+
+```{r}
+param %>%
+  filter(Model == "C",
+         Parameter == "Delta on Event 1" |
+           Parameter == "Delta on Event 2" |
+           Parameter == "Delta on Event 3" |
+           Parameter == "Delta on Event 4" |
+           Parameter == "Delta on Event 5A" |
+           Parameter == "Delta on Event 5B" |  
+           Parameter == "Delta on Event 6" |
+           Parameter == "Delta on Event 7A" |
+           Parameter == "Delta on Event 7B") %>%
+  ggplot(aes( x = Parameter, y = est, color = Component)) +
+  geom_point(position = position_dodge(width = 0.5)) +
+  geom_errorbar(aes(ymin = low2.5, ymax = up2.5), 
+                width = 0.2, 
+                position = position_dodge(width = 0.5))+
+  facet_wrap(~ Age) +
+  theme_minimal() +
+  geom_hline(yintercept=0, linetype="dashed", color="black")+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  
+```
+
+---------------------------------------------
+
+```{r}
+event_explanations <- data.frame(
+    Event = c("Event 1", "Event 2", "Event 3", "Event 4", "Event 5", "Event 6", "Event 7"),
+    Name = c("Family composition", "Illness/bereavement", "Crime and policing", "Maternal education", "Residential mobility", "Youth group attendance", "Income grouping shift"),
+    Information = c("Change(s) to family relationships and composition", "New serious illness or death in the immediate family", "Child, sibling or parent encounter(s) with cime or policing", "Gain of new educational qualification(s)", "Moving home (A = with agency, B = move other reason)", "Participation in youth group activities", "Significant change to equivalised income (A = move out relative poverty, B = move into relative poverty)")
+)
+
+event_explanations |>
+  gt() |>
+  tab_header("Critical event groupings")
+
+```
+
+------------------------------------------------------------------------
+
+Without controlling for context or confounding relationships......
+
+-   Adversity predicts elevated acquisition of behavioural difficulties.
+
+-   Much more muddled effect for "positive" household changes
+
+------------------------------------------------------------------------
+
+```{r}
+r2 |>
+  filter(Model == "B" | Model == "C") |>
+  mutate(ci_lower = est - 1.96 * se,
+         ci_upper = est + 1.96 * se) |>
+  ggplot(
+    aes(x = Component, y = est, color = Model)
+  ) +
+  geom_point(position = position_dodge(width = 0.5)) +
+  geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper), 
+                width = 0.2, 
+                position = position_dodge(width = 0.5)) +
+  geom_hline(yintercept=0, linetype="dashed", color="black")+
+  theme_minimal() +
+  labs(y = "R2 of Delta explained") +
+  facet_wrap(~ Age)
+```
+
+------------------------------------------------------------------------
+
+# Model D: Full model
+
+------------------------------------------------------------------------
+
+
+![](images/model-full.png)
+
+
+------------------------------------------------------------------------
+
+```{r}
+param %>%
+  filter(Model == "D" | Model == "C",
+         Parameter == "Delta on Event 1" |
+           Parameter == "Delta on Event 2" |
+           Parameter == "Delta on Event 3" |
+           Parameter == "Delta on Event 4" |
+           Parameter == "Delta on Event 5" |
+           Parameter == "Delta on Event 6" |
+           Parameter == "Delta on Event 7A" |
+           Parameter == "Delta on Event 7B") %>%
+  mutate(Model = case_when(
+    Model == "D" ~ "Full",
+    Model == "C" ~ "No controls"
+  )) |>
+  ggplot(aes( x = Parameter, y = est, color = Component, shape = Model)) +
+  geom_point(position = position_dodge(width = 1)) +
+  geom_errorbar(aes(ymin = low2.5, ymax = up2.5), 
+                width = 0.2, 
+                position = position_dodge(width =1))+
+  facet_wrap(~ Age) +
+  theme_minimal() +
+  geom_hline(yintercept=0, linetype="dashed", color="black")+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+Relationships are largely but not entirely robust to covariate contribution
+
+------------------------------------------------------------------------
+
+
+```{r}
+r2 |>
+  filter(Model == "B" | Model == "D" | Model == "C") |>
+  mutate(ci_lower = est - 1.96 * se,
+         ci_upper = est + 1.96 * se,
+         Model = factor(
+           case_when(Model == "B" ~ "Context (B)",
+                     Model == "D" ~ "Full (D)",
+                     Model == "C" ~ "Event (C)"),
+           levels = c("Context (B)", "Event (C)", "Full (D)")
+           )
+         ) |>
+
+  ggplot(
+    aes(x = Model, y = est, color = Component, shape = Event)
+  ) +
+  geom_point(position = position_dodge(width = 1)) +
+  geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper), 
+                width = 0.2, 
+                position = position_dodge(width = 1)) +
+  geom_hline(yintercept=0, linetype="dashed", color="black")+
+  theme_minimal() +
+  labs(y = "R2 of Delta explained") +
+  facet_wrap(~ Age)
+```
+
+
+
+--------------------------------------
+
+-   Some instability around mean change estimate
+
+```{r}
+param %>%
+  dplyr::filter(Parameter == "Means Delta") |>
+  dplyr::filter(Model != "E") |>
+ggplot(aes(x = Component, y = est, color = Model)) +
+  geom_point(position = position_dodge(width = 0.5)) +
+  geom_errorbar(aes(ymin = low2.5, ymax = up2.5), 
+                width = 0.2, 
+                position = position_dodge(width = 0.5)) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  geom_hline(yintercept=0, linetype="dashed", color="purple") +
+  facet_grid(~Age) +
+  theme_minimal()
+```
+
+```{r}
+param2 %>%
+  dplyr::filter(Parameter == "Means Delta") |>
+  dplyr::filter(Model == "A" | Model == "D") |>
+
+
+ggplot(aes(x = Component, y = pval, color = Model)) +
+  geom_point(position = position_dodge(width = 0.5)) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  geom_hline(yintercept=0.05, linetype="dashed", color="red") +
+  geom_hline(yintercept = 0.0, color = "black") +
+  facet_grid(~Age) +
+  theme_minimal()
+```
+
+
+```{r}
+param %>%
+  dplyr::filter(Parameter == "Means Delta") |>
+  dplyr::filter(Model != "E") |>
+  dplyr::filter(pval > 0.05) |>
+  gt()
+  
+```
+
+---------------------------------------
+
+
+# Diet model
+
+
+![](images/diet.png)
+
+
+
+----------------------------------------------------
+
+```{r}
+
+Indice = c("CFI", "TLI", "RMSEA")
+Estimate = c(0.9, 0.08, 0.9)
+
+fit |>
+  dplyr::filter(Model == "D" | Model == "E") |>
+  tidyr::pivot_longer(cols = c(CFI, TLI, RMSEA),
+                      names_to = "Indice",
+                      values_to = "Estimate") |>
+  ggplot(aes(
+    y = Estimate, x = Indice, color = Component
+  )) +
+    geom_point() +
+  geom_hline(yintercept = 0.9, linetype = "dotted") +
+  geom_hline(yintercept = 0.08, linetype = "dotted") +
+  theme_minimal() +
+  facet_grid(~Model)
+```
+
+```{r}
+
+fit |>
+  dplyr::filter(Model == "D" | Model == "E") |>
+  dplyr::filter(Component == "peer") |>
+  gt::gt()
+```
+
+------------------------------------------------
+
+
+```{r}
+param %>%
+  filter(Model == "D" | Model == "E",
+         Parameter == "Delta on Event 1" |
+           Parameter == "Delta on Event 2" |
+           Parameter == "Delta on Event 3" |
+           Parameter == "Delta on Event 4" |
+           Parameter == "Delta on Event 5" |
+           Parameter == "Delta on Event 6" |
+           Parameter == "Delta on Event 7A" |
+           Parameter == "Delta on Event 7B") %>%
+  mutate(Model = case_when(
+    Model == "D" ~ "Full",
+    Model == "E" ~ "Diet"
+  )) |>
+  ggplot(aes( x = Parameter, y = est, color = Component, shape = Model)) +
+  geom_point(position = position_dodge(width = 1)) +
+  geom_errorbar(aes(ymin = low2.5, ymax = up2.5), 
+                width = 0.2, 
+                position = position_dodge(width =1))+
+  facet_wrap(~ Age) +
+  theme_minimal() +
+  geom_hline(yintercept=0, linetype="dashed", color="black")+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+-----------------------------------------------------------------------
+
+
+
+
+```{r}
+r2 |>
+  filter(Model != "A") |>
+  mutate(ci_lower = est - 1.96 * se,
+         ci_upper = est + 1.96 * se,
+         Model = factor(
+           case_when(Model == "B" ~ "Context (B)",
+                     Model == "D" ~ "Full (D)",
+                     Model == "C" ~ "Event (C)",
+                     Model == "E" ~ "Diet (E)"),
+           levels = c("Context (B)", "Event (C)", "Full (D)", "Diet (E)")
+         )
+         )|>
+  ggplot(
+    aes(x = Model, y = est, color = Component, shape = Event)
+  ) +
+  geom_point(position = position_dodge(width = 1)) +
+  geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper), 
+                width = 0.2, 
+                position = position_dodge(width = 1)) +
+  geom_hline(yintercept=0, linetype="dashed", color="black")+
+  theme_minimal() +
+  labs(y = "R2 of Delta explained") +
+  facet_wrap(~ Age)
+```
+
+------------------------------------------------------------------------
+
+
+
+
+
+------------------------------------------------------------------------
+
+```{r}
+param %>%
+  filter(Model == "E",
+         Parameter == "Delta on Event 1" |
+           Parameter == "Delta on Event 2" |
+           Parameter == "Delta on Event 3" |
+           Parameter == "Delta on Event 4" |
+           Parameter == "Delta on Event 5A" |
+           Parameter == "Delta on Event 5B" |
+           Parameter == "Delta on Event 6" |
+           Parameter == "Delta on Event 7A" |
+           Parameter == "Delta on Event 7B") %>%
+  mutate(Model = case_when(
+    Model == "E" ~ "Limited controls"
+  )) |>
+  ggplot(aes( x = Parameter, y = est, color = Component, shape = Model)) +
+  geom_point(position = position_dodge(width = 1)) +
+  geom_errorbar(aes(ymin = low2.5, ymax = up2.5), 
+                width = 0.2, 
+                position = position_dodge(width =1))+
+  facet_wrap(~ Age) +
+  theme_minimal() +
+  geom_hline(yintercept=0, linetype="dashed", color="black")+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
+
+------------------------------------------------------------------------
+
+# Summary
+
+-------------------------------------------------------------------------
+
+- Participation in social groups predicts a greater-than-average accumulation of pro-social strengths in adolescence, but is not significantly associated with tempering difficulties.
+
+- Changes in family composition predict elevated accumulation of emotional difficulties and externalising problems in early and middle childhood.
+
+- Significant health problems in the family are associated with elevated accumulation of all difficulties.
+
+- Encounters with crime/policing in middle childhood predict both elevated accumulation of difficulties and reduced accumulation of pro-social strengths.
+
+- Moving home "without agency" predicted elevated conduct problems and emotional difficulties.
+
+- Moving into relative poverty predicts elevated internalising problems
+
+------------------------------------------------------------------------
+
+# Conclusions
+
+-------------------------------------------------------------------
+
+- Moving home appears to have a stronger impact on development in the early years (could be evidence of a timing effect)
+
+- Other evidence for timing/developmental period effects are more muted
+
+- Increased adversities have a clear and negative impact on social and emotional development, but the protective factor of "positive" changes is less evident at this level of population averages
+
+- Expected to see a significant positive impact of moving out of relative poverty, but results are fairly muted.
+
+------------------------------------------------------------------------
+
+## Limitations
+
+- only estimates short-to-medium term effects
+
+- Many theories of childhood adversity and life-course effects hang on lasting/cumulative effects over longer period of time
+
+- Some estimate instability, may come with the SEM territory
+
+- Relies on parent-reports (which systemically differ from child self-reports)
+
+- Relies on researcher assignment of the qualitatively positive/negative meaning of a critical event/turning point, which is crudge, generalising and imperfect.
+
+- Difficult to construct "positive" changes (due to study design/interests of the time)
+
+-------------------------------------------------------------------------
+
+- Overall, while most events have a statistically significant impact on development, they contribute poorly to explaining the *variance* in behavioural change over time.
+ short-term impact on social and emotional behaviours
+
+-   However, at a population level, this explains for very little of the between-individual variance in behavioural change over either developmental period
+
+- Much more variance is explained by baseline covariates
+
+<br>
+
+**Implications: Critical events "matter" at an individual level, and this impact can generally be detected at the population level, but are a less convincing explainer of the emergence of the social gradient of mental health**
+
+
+
+---------------------------------------------------------------
+
+# Questions?
+
+
+
+------------------------------------------------------------------------
+
+::: {refs}
+:::
+
+
+
+
+------------------------------------------------------------------------
+
+```{r}
+# extra slide: coefficients
+
+param %>%
+  filter(Model == "E",
+         Parameter == "Delta on Event 1" |
+           Parameter == "Delta on Event 2" |
+           Parameter == "Delta on Event 3" |
+           Parameter == "Delta on Event 4" |
+           Parameter == "Delta on Event 5" |
+           Parameter == "Delta on Event 6" |
+           Parameter == "Delta on Event 7A" |
+           Parameter == "Delta on Event 7B") %>%
+  mutate(Model = case_when(
+    Model == "E" ~ "Limited controls"
+  )) |>
+  select(Parameter, est, low2.5, up2.5, pval, Component, Age) |>
+  gt()
+```
+
+
+---------------------------------------
