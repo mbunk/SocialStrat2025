@@ -35,9 +35,9 @@ get_root_dir <- function() {
   user <- Sys.info()[["user"]]
   
   if (grepl("s1769862", user)) {
-    return("C:\\Users\\s1769862\\OneDrive - University of Edinburgh\\Presentations\\Critical-Events-in-Childhood-Presentation\\_data")
+    return("C:\\Users\\s1769862\\OneDrive - University of Edinburgh\\Presentations\\SocialStrat2025\\_data")
   } else if (grepl("maddi", user)) {
-    return("C:\\Users\\maddi\\Documents\\Presentations\\Critical Events in Childhood Presentation\\_data\\Paper_5")
+    return("C:\\Users\\maddi\\Documents\\Presentations\\SocialStrat2025\\_data")
   } else {
     stop("Unknown user")
   }
