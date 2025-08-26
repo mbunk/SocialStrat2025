@@ -1,0 +1,5 @@
+*.html
+*_files/
+
+# Ignoring data for now
+_data/
