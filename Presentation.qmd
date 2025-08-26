@@ -10,8 +10,6 @@ format:
     scrollable: true
     slide-number: true
     footer: "Maddi.Bunker@ed.ac.uk"
-output:
-  html:
     embed-resources: true
 bibliography: references.json
 logo: images/UoE.png
